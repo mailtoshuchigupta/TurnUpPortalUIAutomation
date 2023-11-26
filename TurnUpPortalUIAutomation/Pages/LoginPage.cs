@@ -9,7 +9,7 @@ using TurnUpPortalUIAutomation.Utilities;
 
 namespace TurnUpPortalUIAutomation.Pages
 {
-    public class Login
+    public class LoginPage
     {
         public void LoginAction(IWebDriver driver)
         {
@@ -17,13 +17,12 @@ namespace TurnUpPortalUIAutomation.Pages
              * if within 5 seconds that elment is found its good, if an element is taking more than 5 sec to load then it
              * will through erreo that this element can not be found,implici twait is given as
              * driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(5);*/
-            driver.Manage().Window
-                .Maximize();
+            driver.Manage().Window.Maximize();
             //Launce TurnUp portal and Navigate to the website login page
             driver.Navigate().GoToUrl("http://horse.industryconnect.io/Account/Login");  // through driver we are accessing navigate and gotourl methods
             Thread.Sleep(4000);
             //usind wait utility
-            Wait.WaitToExit(driver, "Id", "UserName", 8);
+           // Wait.WaitToExit(driver, "Id", "UserName", 8);
             //Identify the username textbox(elements,throughInspect and html port ) and enter valid username
             IWebElement usernameTextbox = driver.FindElement(By.Id("UserName"));
             usernameTextbox.SendKeys("hari");
@@ -43,3 +42,12 @@ namespace TurnUpPortalUIAutomation.Pages
         }
     }
 }
+/* if (helloHari.Text == "Hello hari!")
+{
+    Console.WriteLine("User has logged in successfully");
+}
+else
+{
+    Console.WriteLine("User hasn't been logged in.");
+}
+//Create a new time recrd */
